@@ -154,3 +154,6 @@
   margin-right: 2em;
 }
 
+#store .entry form, #store .entry form div {
+	display: inline;
+}
