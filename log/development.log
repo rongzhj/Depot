@@ -1,0 +1,1121 @@
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (103.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (67.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateProducts (20120725010507)
+  [1m[36mSQL (2.0ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120725010507')
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:08:34 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 163ms (Views: 37.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Jul 25 09:08:50 +0800 2012
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (132.0ms)
+Rendered products/new.html.erb within layouts/application (153.0ms)
+Completed 200 OK in 206ms (Views: 191.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Jul 25 09:10:21 +0800 2012
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (50.0ms)
+Rendered products/new.html.erb within layouts/application (71.0ms)
+Completed 200 OK in 122ms (Views: 106.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Jul 25 09:12:19 +0800 2012
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"XuzGga4i8Egrv+5Ueav8sXDcGPI06qV/daHC3M4SgKw=", "utf8"=>"✓", "product"=>{"price"=>"42.95", "title"=>"Web Design for Developers", "image_url"=>"/images/wd4d.jpg", "description"=>"<p>\r\n<em>Web Design for Developers</em> will show you how to make your web_based application look professionally designed.\r\n</p>"}}
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "products" ("updated_at", "image_url", "price", "title", "created_at", "description") VALUES ('2012-07-25 01:12:19.578159', '/images/wd4d.jpg', 42.95, 'Web Design for Developers', '2012-07-25 01:12:19.578159', '<p>
+<em>Web Design for Developers</em> will show you how to make your web_based application look professionally designed.
+</p>')[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 257ms
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Jul 25 09:12:19 +0800 2012
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered products/show.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 92ms (Views: 73.0ms | ActiveRecord: 3.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (62.4ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (46.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (78.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (78.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:15:44 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 82ms (Views: 68.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (87.0ms)[0m  DELETE FROM "products" WHERE 1=1
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "products" ("description", "image_url", "title", "updated_at", "created_at", "price") VALUES ('<p>
+ <em>Web Design for Developers</em> will show you how to make your
+ web-based application look professionally designed. We''ll help you
+ learn how to pick the right colors and fonts, avoid costly interface
+ and accessibility mistakes -- your application will really come alive.
+ We''ll also walk you through some common Photoshop and CSS techniques
+ and work through a web site redesign, taking a new design from concept
+ all the way to implementation.
+ </p>', '/images/wd4d.jpg', 'Web Design for Developers', '2012-07-25 01:23:37.474376', '2012-07-25 01:23:37.474376', 42.95)[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO "products" ("description", "image_url", "title", "updated_at", "created_at", "price") VALUES ('<p>
+ Ruby is the fastest growing and most exciting dynamic language
+ out there. If you need to get working programs delivered fast,
+ you should add Ruby to your toolbox.
+ </p>', '/images/ruby.jpg', 'Programming Ruby 1.9', '2012-07-25 01:23:37.652386', '2012-07-25 01:23:37.652386', 49.5)
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "products" ("description", "image_url", "title", "updated_at", "created_at", "price") VALUES ('<p>
+ <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
+ Rails applications, covering Test-Driven Development from both a
+ theoretical perspective (why to test) and from a practical perspective
+ (how to test effectively). It covers the core Rails testing tools and
+ procedures for Rails 2 and Rails 3, and introduces popular add-ons,
+ including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
+ </p>', '/images/rtp.jpg', 'Rails Test Prescriptions', '2012-07-25 01:23:37.729390', '2012-07-25 01:23:37.729390', 43.75)[0m
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (94.0ms)[0m  DELETE FROM "products" WHERE 1=1
+  [1m[36mAREL (2.0ms)[0m  [1mINSERT INTO "products" ("image_url", "created_at", "description", "title", "updated_at", "price") VALUES ('/images/wd4d.jpg', '2012-07-25 01:24:09.323197', '<p>
+ <em>Web Design for Developers</em> will show you how to make your
+ web-based application look professionally designed. We''ll help you
+ learn how to pick the right colors and fonts, avoid costly interface
+ and accessibility mistakes -- your application will really come alive.
+ We''ll also walk you through some common Photoshop and CSS techniques
+ and work through a web site redesign, taking a new design from concept
+ all the way to implementation.
+ </p>', 'Web Design for Developers', '2012-07-25 01:24:09.323197', 42.95)[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "products" ("image_url", "created_at", "description", "title", "updated_at", "price") VALUES ('/images/ruby.jpg', '2012-07-25 01:24:09.497207', '<p>
+ Ruby is the fastest growing and most exciting dynamic language
+ out there. If you need to get working programs delivered fast,
+ you should add Ruby to your toolbox.
+ </p>', 'Programming Ruby 1.9', '2012-07-25 01:24:09.497207', 49.5)
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "products" ("image_url", "created_at", "description", "title", "updated_at", "price") VALUES ('/images/rtp.jpg', '2012-07-25 01:24:09.565211', '<p>
+ <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
+ Rails applications, covering Test-Driven Development from both a
+ theoretical perspective (why to test) and from a practical perspective
+ (how to test effectively). It covers the core Rails testing tools and
+ procedures for Rails 2 and Rails 3, and introduces popular add-ons,
+ including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
+ </p>', 'Rails Test Prescriptions', '2012-07-25 01:24:09.565211', 43.75)[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:27:39 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 103ms (Views: 85.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:31:08 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (192.0ms)
+Completed 200 OK in 322ms (Views: 304.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:31:11 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 109ms (Views: 90.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:31:40 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 110ms (Views: 92.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at Wed Jul 25 09:33:56 +0800 2012
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1
+Rendered products/show.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 77ms (Views: 62.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20120725010507)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1mDROP TABLE "products"[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120725010507'
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:41:12 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+SQLite3::SQLException: no such table: products: SELECT "products".* FROM "products"
+Completed   in 15ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: products: SELECT "products".* FROM "products"):
+  app/controllers/products_controller.rb:5:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20120725010507)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120725010507')
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:41:57 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 67ms (Views: 49.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Jul 25 09:42:00 +0800 2012
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (49.0ms)
+Rendered products/new.html.erb within layouts/application (72.0ms)
+Completed 200 OK in 125ms (Views: 110.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Jul 25 09:42:07 +0800 2012
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"XuzGga4i8Egrv+5Ueav8sXDcGPI06qV/daHC3M4SgKw=", "utf8"=>"✓", "product"=>{"price"=>"adsf", "title"=>"dsa", "image_url"=>"asdf", "description"=>"adsf"}}
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "products" ("image_url", "title", "created_at", "updated_at", "description", "price") VALUES ('asdf', 'dsa', '2012-07-25 01:42:07.308292', '2012-07-25 01:42:07.308292', 'adsf', 0.0)[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 206ms
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed Jul 25 09:42:07 +0800 2012
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered products/show.html.erb within layouts/application (102.0ms)
+Completed 200 OK in 159ms (Views: 139.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:42:09 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 93ms (Views: 75.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/asdf" for 127.0.0.1 at Wed Jul 25 09:42:09 +0800 2012
+
+ActionController::RoutingError (No route matches "/images/asdf"):
+  
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started POST "/products/1" for 127.0.0.1 at Wed Jul 25 09:42:12 +0800 2012
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XuzGga4i8Egrv+5Ueav8sXDcGPI06qV/daHC3M4SgKw=", "id"=>"1"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+  [1m[36mAREL (2.0ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = 1[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 126ms
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:42:12 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 68ms (Views: 50.0ms | ActiveRecord: 4.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "products" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "products" ("description", "updated_at", "created_at", "image_url", "title", "price") VALUES ('<p>
+ <em>Web Design for Developers</em> will show you how to make your
+ web-based application look professionally designed. We''ll help you
+ learn how to pick the right colors and fonts, avoid costly interface
+ and accessibility mistakes -- your application will really come alive.
+ We''ll also walk you through some common Photoshop and CSS techniques
+ and work through a web site redesign, taking a new design from concept
+ all the way to implementation.
+ </p>', '2012-07-25 01:43:06.732559', '2012-07-25 01:43:06.732559', '/images/wd4d.jpg', 'Web Design for Developers', 42.95)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "products" ("description", "updated_at", "created_at", "image_url", "title", "price") VALUES ('<p>
+ Ruby is the fastest growing and most exciting dynamic language
+ out there. If you need to get working programs delivered fast,
+ you should add Ruby to your toolbox.
+ </p>', '2012-07-25 01:43:06.841759', '2012-07-25 01:43:06.841759', '/images/ruby.jpg', 'Programming Ruby 1.9', 49.5)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "products" ("description", "updated_at", "created_at", "image_url", "title", "price") VALUES ('<p>
+ <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
+ Rails applications, covering Test-Driven Development from both a
+ theoretical perspective (why to test) and from a practical perspective
+ (how to test effectively). It covers the core Rails testing tools and
+ procedures for Rails 2 and Rails 3, and introduces popular add-ons,
+ including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
+ </p>', '2012-07-25 01:43:06.919759', '2012-07-25 01:43:06.919759', '/images/rtp.jpg', 'Rails Test Prescriptions', 43.75)[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 09:43:11 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (142.0ms)
+Completed 200 OK in 198ms (Views: 178.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/2/edit" for 127.0.0.1 at Wed Jul 25 09:43:17 +0800 2012
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered products/_form.html.erb (47.0ms)
+Rendered products/edit.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 125ms (Views: 107.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/3/edit" for 127.0.0.1 at Wed Jul 25 09:43:20 +0800 2012
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1[0m
+Rendered products/_form.html.erb (46.0ms)
+Rendered products/edit.html.erb within layouts/application (67.0ms)
+Completed 200 OK in 199ms (Views: 178.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/4/edit" for 127.0.0.1 at Wed Jul 25 09:43:23 +0800 2012
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+Rendered products/_form.html.erb (50.0ms)
+Rendered products/edit.html.erb within layouts/application (73.0ms)
+Completed 200 OK in 131ms (Views: 111.0ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (70.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (54.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (1.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (50.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (53.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (1.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (116.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (32.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (49.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (69.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (54.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (54.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (53.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (1.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (84.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (55.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (50.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (2.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (1.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (62.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (43.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (82.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (86.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (61.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (55.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (62.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (76.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (86.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (76.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (77.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (86.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (69.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (32.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (61.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (74.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (77.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (65.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (64.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (65.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (70.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (73.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (65.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (69.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (65.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (69.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (61.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (58.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (53.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (74.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (65.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (1.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (70.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (69.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (1.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (58.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (62.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (67.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (67.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (185.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (130.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (61.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (67.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 11:57:43 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (111.0ms)
+Completed 200 OK in 162ms (Views: 145.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Jul 25 11:57:45 +0800 2012
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (50.0ms)
+Rendered products/new.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 129ms (Views: 108.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Jul 25 11:57:55 +0800 2012
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"XuzGga4i8Egrv+5Ueav8sXDcGPI06qV/daHC3M4SgKw=", "utf8"=>"✓", "product"=>{"price"=>"3", "title"=>"", "image_url"=>"asdf.jpg", "description"=>"adf"}}
+  [1m[35mSQL (0.0ms)[0m  SELECT 1 FROM "products" WHERE ("products"."title" = '') LIMIT 1
+  [1m[36mAREL (2.0ms)[0m  [1mINSERT INTO "products" ("title", "price", "image_url", "description", "created_at", "updated_at") VALUES ('', 3.0, 'asdf.jpg', 'adf', '2012-07-25 03:57:55.457381', '2012-07-25 03:57:55.457381')[0m
+Redirected to http://localhost:3000/products/5
+Completed 302 Found in 2096ms
+
+
+Started GET "/products/5" for 127.0.0.1 at Wed Jul 25 11:57:57 +0800 2012
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1
+Rendered products/show.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 99ms (Views: 74.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 11:57:59 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (63.0ms)
+Completed 200 OK in 124ms (Views: 101.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/asdf.jpg" for 127.0.0.1 at Wed Jul 25 11:57:59 +0800 2012
+
+ActionController::RoutingError (No route matches "/images/asdf.jpg"):
+  
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.0ms)
+
+
+Started POST "/products/5" for 127.0.0.1 at Wed Jul 25 11:58:15 +0800 2012
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XuzGga4i8Egrv+5Ueav8sXDcGPI06qV/daHC3M4SgKw=", "id"=>"5"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1
+  [1m[36mAREL (1.0ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = 5[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 116ms
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 11:58:15 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 113ms (Views: 88.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed Jul 25 11:58:16 +0800 2012
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (117.0ms)
+Rendered products/new.html.erb within layouts/application (139.0ms)
+Completed 200 OK in 198ms (Views: 178.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed Jul 25 11:58:24 +0800 2012
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"XuzGga4i8Egrv+5Ueav8sXDcGPI06qV/daHC3M4SgKw=", "utf8"=>"✓", "product"=>{"price"=>"34", "title"=>"", "image_url"=>"asdf.jpg", "description"=>"adsf"}}
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT 1 FROM "products" WHERE ("products"."title" = '') LIMIT 1[0m
+Rendered products/_form.html.erb (23.0ms)
+Rendered products/new.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 121ms (Views: 75.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed Jul 25 11:58:27 +0800 2012
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 96ms (Views: 78.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/store/index" for 127.0.0.1 at Wed Jul 25 13:55:12 +0800 2012
+  Processing by StoreController#index as HTML
+Rendered store/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:02:48 +0800 2012
+  Processing by StoreController#index as HTML
+Rendered store/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:12:05 +0800 2012
+  Processing by StoreController#index as HTML
+Completed   in 8ms
+
+NameError (uninitialized constant StoreController::Products):
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (45.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:15:19 +0800 2012
+  Processing by StoreController#index as HTML
+Completed   in 7ms
+
+NameError (uninitialized constant StoreController::Products):
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (52.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:15:20 +0800 2012
+  Processing by StoreController#index as HTML
+Completed   in 8ms
+
+NameError (uninitialized constant StoreController::Products):
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (65.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:15:21 +0800 2012
+  Processing by StoreController#index as HTML
+Completed   in 8ms
+
+NameError (uninitialized constant StoreController::Products):
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (60.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:15:54 +0800 2012
+  Processing by StoreController#index as HTML
+Completed   in 7ms
+
+NameError (uninitialized constant StoreController::Products):
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:15:55 +0800 2012
+  Processing by StoreController#index as HTML
+Completed   in 7ms
+
+NameError (uninitialized constant StoreController::Products):
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:16:37 +0800 2012
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (2.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title[0m
+Rendered store/index.html.erb within layouts/application (226.0ms)
+Completed 200 OK in 421ms (Views: 269.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:26:49 +0800 2012
+  Processing by StoreController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title
+Rendered store/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 97ms (Views: 74.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:31:50 +0800 2012
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title[0m
+Rendered store/index.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 97ms (Views: 73.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:33:23 +0800 2012
+  Processing by StoreController#index as HTML
+  [1m[35mProduct Load (2.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title
+Rendered store/index.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 95ms (Views: 71.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:33:25 +0800 2012
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title[0m
+Rendered store/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 95ms (Views: 72.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:35:09 +0800 2012
+  Processing by StoreController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title
+Rendered store/index.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 86ms (Views: 64.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jul 25 14:37:48 +0800 2012
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title[0m
+Rendered store/index.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 108ms (Views: 85.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (64.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (1.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (80.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal(8,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (64.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (70.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (64.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120725010507')[0m
