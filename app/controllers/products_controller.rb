@@ -88,4 +88,7 @@ class ProductsController < ApplicationController
       format.xml { render :xml => @product}
     end
   end
+
+  def aaa
+  end
 end
